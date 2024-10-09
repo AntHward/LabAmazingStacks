@@ -154,5 +154,31 @@ public class CarvedMaze extends Maze
     private void carveMazeUsingStack(Cell start, Cell end)
     {
         //student implementation
+        LinkedStack<Cell> stack = new LinkedStack<Cell>();
+        
+        Cell current = randomUncarvedNeighbor(start);
+        Cell last = start;
+        stack.push(start);
+        Cell neigbor;
+        carve(null, start);
+        
+        while(canCarve(end) == true){   
+        
+        current = stack.peek();
+        neigbor = randomUncarvedNeighbor(current);
+        
+        if(neigbor != null){
+        carve(current, neigbor);
+        stack.push(neigbor);
+        }
+        
+        else{
+        stack.pop();
+        
+        }
+    
+        last = current;
+        
+        }        
     }
 }
