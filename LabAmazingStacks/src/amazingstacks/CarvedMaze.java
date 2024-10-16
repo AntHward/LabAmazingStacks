@@ -162,7 +162,7 @@ public class CarvedMaze extends Maze
         Cell neigbor;
         carve(null, start);
         
-        while(canCarve(end) == true){   
+        while(stack.isEmpty() == false){   
         
         current = stack.peek();
         neigbor = randomUncarvedNeighbor(current);
